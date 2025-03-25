@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "AMoverGRPC";
+
+service MotasService {
+  rpc GetMotaInfo (MotaRequest) returns (MotaResponse);
+}
+
+message MotaRequest {
+  string vin = 1;
+}
+
+message MotaResponse {
+  string vin = 1; 
+  int32 battery = 2;
+  int32 kilometers = 3;
+  double latitude = 4;
+  double longitude = 5; 
+}

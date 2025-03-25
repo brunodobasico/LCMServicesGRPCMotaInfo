@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMoverGRPC", "AMoverGRPC\AMoverGRPC.csproj", "{CE232EB2-162C-45ED-A389-E22C6BE120A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE232EB2-162C-45ED-A389-E22C6BE120A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE232EB2-162C-45ED-A389-E22C6BE120A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE232EB2-162C-45ED-A389-E22C6BE120A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE232EB2-162C-45ED-A389-E22C6BE120A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC2E25FB-7F87-4274-9FAC-19313E1BE6B2}
+	EndGlobalSection
+EndGlobal
