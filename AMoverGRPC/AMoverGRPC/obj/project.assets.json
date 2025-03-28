@@ -5126,11 +5126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bruno\\Desktop\\AMoverGRPC\\AMoverGRPC\\AMoverGRPC.csproj",
+      "projectUniqueName": "C:\\Users\\bruno\\Desktop\\Protocolo-comunicacaoo\\LCMServicesGRPCMotaInfo\\AMoverGRPC\\AMoverGRPC\\AMoverGRPC.csproj",
       "projectName": "AMoverGRPC",
-      "projectPath": "C:\\Users\\bruno\\Desktop\\AMoverGRPC\\AMoverGRPC\\AMoverGRPC.csproj",
+      "projectPath": "C:\\Users\\bruno\\Desktop\\Protocolo-comunicacaoo\\LCMServicesGRPCMotaInfo\\AMoverGRPC\\AMoverGRPC\\AMoverGRPC.csproj",
       "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bruno\\Desktop\\AMoverGRPC\\AMoverGRPC\\obj\\",
+      "outputPath": "C:\\Users\\bruno\\Desktop\\Protocolo-comunicacaoo\\LCMServicesGRPCMotaInfo\\AMoverGRPC\\AMoverGRPC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

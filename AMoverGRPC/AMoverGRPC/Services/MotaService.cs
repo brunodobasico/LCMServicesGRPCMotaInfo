@@ -17,7 +17,11 @@ namespace AMoverGRPC.Services
         {
             Console.WriteLine($"Buscando informações da mota ID: {request.Vin}");
 
-            var mota = await _context.Motas.FirstOrDefaultAsync(m => m.VIN == request.Vin);
+            var mota = await _context.Motas
+             .Where(m => m.VIN == request.Vin)
+             .OrderByDescending(m => m.MotaId)
+             .FirstOrDefaultAsync();
+
 
 
             if (mota == null)
