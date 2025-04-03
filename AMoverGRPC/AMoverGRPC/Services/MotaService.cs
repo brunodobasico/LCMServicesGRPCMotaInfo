@@ -1,6 +1,7 @@
 ﻿using AMoverGRPC.Data;
 using Grpc.Core;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace AMoverGRPC.Services
 {
@@ -15,26 +16,42 @@ namespace AMoverGRPC.Services
 
         public override async Task<MotaResponse> GetMotaInfo(MotaRequest request, ServerCallContext context)
         {
-            Console.WriteLine($"Buscando informações da mota ID: {request.Vin}");
+            // Extrair token do header Authorization
+            var authHeader = context.RequestHeaders.FirstOrDefault(h => h.Key == "authorization")?.Value;
 
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+                throw new RpcException(new Status(StatusCode.Unauthenticated, "Token JWT não fornecido"));
+
+            var token = authHeader.Substring("Bearer ".Length);
+            var handler = new JwtSecurityTokenHandler();
+
+            if (!handler.CanReadToken(token))
+                throw new RpcException(new Status(StatusCode.Unauthenticated, "Token inválido"));
+
+            var jwt = handler.ReadJwtToken(token);
+
+            // Extrair o preferred_username (ou podes usar sub)
+            var username = jwt.Claims.FirstOrDefault(c => c.Type == "preferred_username")?.Value;
+
+            if (username == null)
+                throw new RpcException(new Status(StatusCode.Unauthenticated, "Utilizador não identificado"));
+
+            Console.WriteLine($"Utilizador autenticado: {username}");
+
+            // Buscar mota que pertence ao utilizador
             var mota = await _context.Motas
-             .Where(m => m.VIN == request.Vin)
-             .OrderByDescending(m => m.MotaId)
-             .FirstOrDefaultAsync();
-
-
+                .Where(m => m.VIN == request.Vin)
+                .FirstOrDefaultAsync();
 
             if (mota == null)
             {
-                Console.WriteLine($"Mota com ID {request.Vin} não encontrada.");
-                throw new RpcException(new Status(StatusCode.NotFound, "Mota não encontrada"));
+                Console.WriteLine($"Mota não encontrada ou sem permissão para o VIN: {request.Vin}");
+                throw new RpcException(new Status(StatusCode.PermissionDenied, "Não tens acesso a esta mota"));
             }
-
-            Console.WriteLine($"Enviando informações da mota ID: {mota.VIN}");
 
             return new MotaResponse
             {
-                Vin = mota.VIN.ToString(),
+                Vin = mota.VIN,
                 Battery = mota.Battery,
                 Kilometers = mota.Kilometers,
                 Latitude = mota.Latitude,

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AMoverGRPC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7461bc4227c413a387011f86cf974c861322232c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d32e4ceceb5716617e2e718215829dcadc05904")]
 [assembly: System.Reflection.AssemblyProductAttribute("AMoverGRPC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AMoverGRPC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
